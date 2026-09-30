@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+      <script src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
+
+    
+</head>
+<body>
+    <a-scene>
+    
+   
+        <a-camera id="camera">
+            <a-cursor></a-cursor>
+        </a-camera>
+        
+        <a-sky color="lightblue" rotation="0 -130 0"></a-sky>
+        <a-entity 
+            id="schelp"
+            geometry="primitive: sphere; radius: 0.3"
+            position="2 0.5 -3"
+            material="color: #F6DEB3"
+            sound= "src: url(luegeeee.mp3); on: click"
+            animation= "property: scale;
+            to: 1.5 1.5 1.5;
+            dur: 300;
+            dir: alternate;
+            loop:1"
+        >
+        </a-entity>
+
+        <a-entity
+        id="floor"
+        geometry="primitive: plane; width: 10; height: 10"
+        position="0 0 -5"
+        rotation="-90 0 0"
+        material="color: #CABC91; side: doubles"
+        ></a-entity>
+
+        <a-entity 
+        id="parasol-cilinder"
+        geometry="primitive: cylinder; radius: 0.2; height: 2"
+        position="-1 1 -6"
+        material="color: brown"
+        ></a-entity>
+        <a-entity
+        id="parasol-cone"
+        geometry="primitive: cone; radiusBottom: 2; radiusTop: 0; height: 0.8"
+        position="-1 2 -6"
+        material="color:red"
+        ></a-entity>
+
+        <a-entity
+        id="towel"
+        geometry="primitive: box; width: 0.9; height: 0.02; depth: 2"
+        position="0.2 0 -6"
+        material="color: #F6DEB3"
+        ></a-entity>
+        
+       <a-entity
+            id="funnycone"
+            geometry="primitive: cone; radiusBottom: 0.5; radiusTop: 0; height: 1"
+            position="2 0.5 -6"
+            material="color: #F6DEB3"
+
+            animation__rotate="property: rotation;
+                   to: 360 0 0;
+                   dur: 1000;
+                   startEvents: mouseenter"
+
+            animation__color="property: material.color;
+                  from: #F6DEB3;
+                  to: #FF0000;
+                  dur: 1000;
+                  startEvents: animationcomplete__rotate">
+            </a-entity>
+
+            <a-entity  look-at="src: #camera"
+            id="rosalina"
+            geometry="primitive: plane; height: 1.6; width: 1"
+            position="0 0.8  -6"
+            rotation="0 0 0"
+            material="src: rosalina.png; transparent: true;"
+            ></a-entity>
+    </a-scene>
+</body>
+</html>
