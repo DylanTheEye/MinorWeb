@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Project</title>
     <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
       <script src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
 
     
 </head>
 <body>
+
     <a-scene>
-    
-   
+
+        <a-assests>
+            <a-asset-item id="boot"
+            src="GLB format/ship-pirate-medium.glb"></a-asset-item>
+        </a-assests>
+        
+
+        
         <a-camera id="camera">
             <a-cursor></a-cursor>
         </a-camera>
         
+        
+
         <a-sky color="lightblue" rotation="0 -130 0"></a-sky>
         <a-entity 
             id="schelp"
@@ -28,37 +37,47 @@
             to: 1.5 1.5 1.5;
             dur: 300;
             dir: alternate;
-            loop:1"
-        >
+            loop:1">
         </a-entity>
+
+
+        <a-entity gltf-model="#boot"
+            id="boot_ding"
+            position="1 0.2 -3"
+            scale="0.5 0.5 0.5">
+        </a-entity>
+           
+            
+
 
         <a-entity
         id="floor"
         geometry="primitive: plane; width: 10; height: 10"
         position="0 0 -5"
         rotation="-90 0 0"
-        material="color: #CABC91; side: doubles"
-        ></a-entity>
+        material="color: #CABC91; side: doubles">
+        </a-entity>
 
         <a-entity 
         id="parasol-cilinder"
-        geometry="primitive: cylinder; radius: 0.2; height: 2"
+        geometry="primitive: cylinder; radius: 0.05; height: 2"
         position="-1 1 -6"
-        material="color: brown"
-        ></a-entity>
+        material="color: brown">
+        </a-entity>
+
         <a-entity
         id="parasol-cone"
         geometry="primitive: cone; radiusBottom: 2; radiusTop: 0; height: 0.8"
         position="-1 2 -6"
-        material="color:red"
-        ></a-entity>
+        material="color:red">
+        </a-entity>
 
         <a-entity
         id="towel"
         geometry="primitive: box; width: 0.9; height: 0.02; depth: 2"
         position="0.2 0 -6"
-        material="color: #F6DEB3"
-        ></a-entity>
+        material="color: #F6DEB3">
+        </a-entity>
         
        <a-entity
             id="funnycone"
@@ -76,15 +95,26 @@
                   to: #FF0000;
                   dur: 1000;
                   startEvents: animationcomplete__rotate">
-            </a-entity>
+        </a-entity>
 
-            <a-entity  look-at="src: #camera"
-            id="rosalina"
-            geometry="primitive: plane; height: 1.6; width: 1"
-            position="0 0.8  -6"
-            rotation="0 0 0"
-            material="src: rosalina.png; transparent: true;"
-            ></a-entity>
+        <!-- <a-entity 
+        id="rosalina"
+        geometry="primitive: plane; height: 1.6; width: 1"
+        position="0 0.8  -6"
+        rotation="0 0 0"
+        material="src: rosalina.png; transparent: true;">
+        </a-entity> -->
+        <a-entity light="type: ambient; intensity: 3"></a-entity>
+        <a-entity light="type: directional; intensity: 0.8" position="2 4 1"></a-entity>
+        <a-entity light="type: point; intensity: 0.7" position="0 3 -2"></a-entity>
+        <!-- schaduw: scène aan + per object cast/receive -->
+       
+
+
+        
+
+            
+
     </a-scene>
 </body>
 </html>
